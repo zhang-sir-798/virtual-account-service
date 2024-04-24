@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.finance.ema.mapper.AccountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.com.finance.ema.model.entity.Account">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="account_no" property="accountNo"/>
+        <result column="subsidiary_no" property="subsidiaryNo"/>
+        <result column="platform_no" property="platformNo"/>
+        <result column="group_no" property="groupNo"/>
+        <result column="merchant_no" property="merchantNo"/>
+        <result column="person_no" property="personNo"/>
+        <result column="balance" property="balance"/>
+        <result column="freeze_money" property="freezeMoney"/>
+        <result column="status" property="status"/>
+        <result column="type" property="type"/>
+        <result column="now_money" property="nowMoney"/>
+        <result column="settle_branch_name" property="settleBranchName"/>
+        <result column="settle_branch_no" property="settleBranchNo"/>
+        <result column="settle_bank_card_name" property="settleBankCardName"/>
+        <result column="settle_bank_name" property="settleBankName"/>
+        <result column="settle_phone" property="settlePhone"/>
+        <result column="settle_city" property="settleCity"/>
+        <result column="settle_province" property="settleProvince"/>
+        <result column="settle_bank_no" property="settleBankNo"/>
+        <result column="legal_card_type" property="legalCardType"/>
+        <result column="legal_id_card" property="legalIdCard"/>
+        <result column="last_dt" property="lastDt"/>
+        <result column="last_ac_bal_data_id" property="lastAcBalDataId"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        create_time,
+        update_time,
+        account_no, subsidiary_no, platform_no, group_no, merchant_no, person_no, balance, freeze_money, status, type, now_money, settle_branch_name, settle_branch_no, settle_bank_card_name, settle_bank_name, settle_phone, settle_city, settle_province, settle_bank_no, legal_card_type, legal_id_card,last_dt,last_ac_bal_data_id
+    </sql>
+
+    <update id="addCash">
+        update account
+        set balance             = balance + #{acAmt} ,
+            last_dt            = #{lastDt},
+            last_ac_bal_data_id = #{lastAcBalDataId}
+        where account_no = #{acNo}
+    </update>
+
+    <update id="subtractCash">
+        update account
+        set balance             = balance - #{acAmt} ,
+            last_dt            = #{lastDt},
+            last_ac_bal_data_id = #{lastAcBalDataId}
+        where account_no = #{acNo}
+    </update>
+
+    <update id="addUncash">
+        update account
+        set freeze_money             = freeze_money + #{acAmt} ,
+            last_dt            = #{lastDt},
+            last_ac_bal_data_id = #{lastAcBalDataId}
+        where account_no = #{acNo}
+    </update>
+
+    <update id="subtractUncash">
+        update account
+        set freeze_money             = freeze_money - #{acAmt} ,
+            last_dt            = #{lastDt},
+            last_ac_bal_data_id = #{lastAcBalDataId}
+        where account_no = #{acNo}
+    </update>
+
+    <update id="opAcAfter">
+        update account
+        set balance                  = balance + #{bAfter} ,
+            freeze_money             = freeze_money - #{fAfter} ,
+            last_dt            = #{lastDt},
+            last_ac_bal_data_id = #{lastAcBalDataId}
+        where account_no = #{acNo}
+          and balance + #{bAfter} >= 0
+          and freeze_money - #{fAfter} >= 0
+    </update>
+
+    <update id="addCashWithFee">
+        update account
+        set balance             = balance + #{acAmt} - #{extraAmt},
+            last_dt            = #{lastDt},
+            last_ac_bal_data_id = #{lastAcBalDataId}
+        where account_no = #{acNo}
+    </update>
+
+    <update id="subtractCashWithFee">
+        update account
+        set balance             = balance - #{acAmt} + #{extraAmt},
+            last_dt            = #{lastDt},
+            last_ac_bal_data_id = #{lastAcBalDataId}
+        where account_no = #{acNo}
+    </update>
+
+</mapper>

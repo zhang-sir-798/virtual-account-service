@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.finance.ema.mapper.PersonMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.com.finance.ema.model.entity.Person">
+        <result column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="person_no" property="personNo" />
+        <result column="person_name" property="personName" />
+        <result column="phone" property="phone" />
+        <result column="id_card" property="idCard" />
+        <result column="bank_no" property="bankNo" />
+        <result column="status" property="status" />
+        <result column="platform_no" property="platformNo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        create_time,
+        update_time,
+        person_no, person_name, phone, id_card, bank_no, status, platform_no
+    </sql>
+
+</mapper>

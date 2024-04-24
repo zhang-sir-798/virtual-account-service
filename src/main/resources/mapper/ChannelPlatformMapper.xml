@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.finance.ema.mapper.ChannelPlatformMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.com.finance.ema.model.entity.ChannelPlatform">
+        <id column="id" property="id" />
+        <result column="channel_no" property="channelNo" />
+        <result column="platform_no" property="platformNo" />
+        <result column="channel_mer_no" property="channelMerNo" />
+        <result column="channel_sub_mer_no" property="channelSubMerNo" />
+        <result column="channel_public_key" property="channelPublicKey" />
+        <result column="channel_private_key" property="channelPrivateKey" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="channel_sub_no" property="channelSubNo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, channel_no, platform_no, channel_mer_no, channel_sub_mer_no, channel_public_key, channel_private_key, create_by, create_time, update_by, update_time, channel_sub_no
+    </sql>
+
+</mapper>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <springProperty scope="context" name="level" source="log.level" defaultValue="info"/>
+    <springProperty scope="context" name="path" source="log.path" defaultValue="logs/"/>
+    <springProperty scope="context" name="max_history" source="log.max_history" defaultValue="365"/>
+    <springProperty scope="context" name="total_size_cap" source="log.total_size_cap" defaultValue="10GB"/>
+    <springProperty scope="context" name="max_file_size" source="log.max_file_size" defaultValue="128MB"/>
+
+    <!-- ConsoleAppender 控制台输出日志 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] | [%logger{36}.%M:%L] %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+    <!-- ERROR级别日志 -->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <file>${path}/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${path}/error-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <maxHistory>${max_history}</maxHistory>
+            <totalSizeCap>${total_size_cap}</totalSizeCap>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${max_file_size}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] | [%logger{36}.%M:%L] %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+
+    <!-- 通用日志(除error与biz) appender -->
+    <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>NEUTRAL</onMismatch>
+        </filter>
+        <file>${path}/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${path}/info-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <maxHistory>${max_history}</maxHistory>
+            <totalSizeCap>${total_size_cap}</totalSizeCap>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${max_file_size}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] | [%logger{36}.%M:%L] %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="error.async" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="ERROR" />
+    </appender>
+
+    <appender name="info.async" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>256</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="INFO" />
+    </appender>
+    <!-- 以下这一句至关重要如果没有，就无法输出 sql 语句 -->
+    <!--注意：在 spring boot 中，想在控制台打印 mybatis 的 sql 语句，只需要配置下边这一句就好了。-->
+    <!--如果想要记录更详细的 SQL 日志，只需要把下面的日志级别改成 TRACE 就可以了-->
+    <!--即将 mapper 接口打入 logger 就行。-->
+    <!--<logger name="cn.com.finance.ema.mapper" additivity="false" level="DEBUG">-->
+        <!--<appender-ref ref="INFO"/>-->
+        <!--<appender-ref ref="ERROR"/>-->
+        <!--<appender-ref ref="CONSOLE"/>-->
+    <!--</logger>-->
+
+    <!-- 测试环境+开发环境 -->
+    <springProfile name="test,local">
+        <root level="${level}">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="error.async"/>
+            <appender-ref ref="info.async"/>
+        </root>
+    </springProfile>
+
+    <!-- 生产环境 -->
+    <springProfile name="prod">
+        <root level="${level}">
+            <appender-ref ref="error.async"/>
+            <appender-ref ref="info.async"/>
+        </root>
+    </springProfile>
+
+</configuration>

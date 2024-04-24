@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.finance.ema.mapper.PlatformMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.com.finance.ema.model.entity.Platform">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="platform_no" property="platformNo"/>
+        <result column="platform_name" property="platformName"/>
+        <result column="status" property="status"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="settle_branch_name" property="settleBranchName"/>
+        <result column="settle_branch_no" property="settleBranchNo"/>
+        <result column="settle_bank_card_name" property="settleBankCardName"/>
+        <result column="settle_bank_name" property="settleBankName"/>
+        <result column="settle_phone" property="settlePhone"/>
+        <result column="settle_city" property="settleCity"/>
+        <result column="settle_province" property="settleProvince"/>
+        <result column="settle_bank_no" property="settleBankNo"/>
+        <result column="legal_card_type" property="legalCardType"/>
+        <result column="legal_id_card" property="legalIdCard"/>
+        <result column="req_key" property="reqkey"/>
+        <result column="allow_refund_day" property="allowRefundDay"/>
+        <result column="trans_notify_url" property="transNotifyUrl"/>
+        <result column="refund_notify_url" property="refundNotifyUrl"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        create_time,
+        update_time,
+        platform_no, platform_name, status, create_by, update_by, settle_branch_name, settle_branch_no, settle_bank_card_name, settle_bank_name, settle_phone, settle_city, settle_province, settle_bank_no, legal_card_type, legal_id_card, req_key,allow_refund_day,trans_notify_url,refund_notify_url
+    </sql>
+
+</mapper>

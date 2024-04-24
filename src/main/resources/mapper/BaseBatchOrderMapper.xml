@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.finance.ema.mapper.BaseBatchOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.com.finance.ema.model.entity.BaseBatchOrder">
+        <id column="id" property="id"/>
+        <result column="batch_no" property="batchNo"/>
+        <result column="source_batch_no" property="sourceBatchNo"/>
+        <result column="channel_batch_no" property="channelBatchNo"/>
+        <result column="channel_no" property="channelNo"/>
+        <result column="fun_no" property="funNo"/>
+        <result column="super_mer_no" property="superMerNo"/>
+        <result column="platform_no" property="platformNo"/>
+        <result column="plate_sub_no" property="plateSubNo"/>
+        <result column="subsidiary_no" property="subsidiaryNo"/>
+        <result column="group_no" property="groupNo"/>
+        <result column="product_no" property="productNo"/>
+        <result column="total_amount" property="totalAmount"/>
+        <result column="total_fee" property="totalFee"/>
+        <result column="total_split_fee" property="totalSplitFee"/>
+        <result column="channel_fee" property="channelFee"/>
+        <result column="platform_amount" property="platformAmount"/>
+        <result column="res_code" property="resCode"/>
+        <result column="res_msg" property="resMsg"/>
+        <result column="remark" property="remark"/>
+        <result column="trans_notify_url" property="transNotifyUrl"/>
+        <result column="trans_status" property="transStatus"/>
+        <result column="payment_status" property="paymentStatus"/>
+        <result column="check_result_msg" property="checkResultMsg"/>
+        <result column="trans_type" property="transType"/>
+        <result column="trx_type" property="trxType"/>
+        <result column="result_time" property="resultTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="sys_order_no" property="sysOrderNo"/>
+        <result column="req_key" property="reqkey"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, batch_no, source_batch_no, channel_batch_no, channel_no, fun_no, super_mer_no ,platform_no, plate_sub_no, subsidiary_no, group_no, product_no, total_amount, total_fee, total_split_fee, channel_fee, platform_amount, res_code, res_msg, remark, trans_notify_url, trans_status, payment_status, check_result_msg, trans_type, trx_type, result_time, create_time, update_time,sys_order_no,req_key
+    </sql>
+
+</mapper>

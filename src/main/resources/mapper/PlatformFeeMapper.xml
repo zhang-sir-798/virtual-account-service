@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.finance.ema.mapper.PlatformFeeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.com.finance.ema.model.entity.PlatformFee">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="channel_no" property="channelNo"/>
+        <result column="platform_no" property="platformNo"/>
+        <result column="product_no" property="productNo"/>
+        <result column="fee_type" property="feeType"/>
+        <result column="fixed_fee" property="fixedFee"/>
+        <result column="ratio_fee" property="ratioFee"/>
+        <result column="status" property="status"/>
+        <result column="ts_type" property="tsType"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        create_time,
+        update_time,
+        channel_no, platform_no, product_no, fee_type, fixed_fee, ratio_fee, status,ts_type
+    </sql>
+
+</mapper>

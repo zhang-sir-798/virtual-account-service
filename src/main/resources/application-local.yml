@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/fund?useUnicode=true&autoReconnect=true&useSSL=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true
+    username: root
+    password: root
+
+ema:
+  sign:
+    publicKey: "test-key"
+    signIgnore:  /treade/login;/treade/logout;/treade/splitPay
+
+  voch:
+    type: "3;4"
+
+  qbs:
+    notify:
+      trade: http://127.0.0.1:19082/mp-api/notify/trade
+      refund: http://127.0.0.1:19082/mp-api/notify/refund
+    baseUrl: https://tttt.com
+    publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApnEowQA23P2s0x1I6pj+TOY1GjlrUsjDEPbgFrljmqW/QfMNkY9+DE7FeF+/Fu1ZFl+/Rht5HatTDxh03IPKmuIK8JWaNw985KkVmufi/YN1q1KcQwSUvtaJt7auZvesf8WCDma1DiuMPZSkciDpOgzpQnkVERmvyhD8PLOqPVfV3XXI1WrVip/4Yd1KqA6Vr9IIYqs6J++eQnd4b38sXi00V0djw7fyx3mMDPXV6n1L1h9hQHcsMEEP/LuLX3xKXM5Ty09G7PPB6cE1qGFS/dHs12s7agdV4ymeM1nwG0oAHVu2Dx+qxKLmxML+V0y+LZ3njI7Od4A9rBZuyYROLQIDAQAB
+    privateKey: MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDVdYye9pLQJGrd61ijl6ojK6Diebn0NY/k0WIe3ycyyKuYLJuqRCpzmjjicfKmHVe/fjmpoXHe8odor008UodMPGi8aM+M4Xc5/jCq8++/GamMC1oPRH36EoTJvebqB7JKL6Nm06ZHDR4dibHZC6ychLwA+MErNF0aK4VCkE+13Gthb2PCaeo2g3oFvVFNKi5pBeKvN9RkAyijgluhhxvQBF7Tpdepcp5tP5XG/JrPsdwSlstGySNwQ8rozZYXusicnJpj036FWwUWR0zKswNnOOeyj8TqV2DdeaK9z3PCZ6y59K507VEZ4otKy27HA7iKHToQQTfp2dFFj75tOEuNAgMBAAECggEBANApxUuUPBH9IbZu90757XJE7q1NdflgboX/ZweiKRDOPwC0p82AkkGQKV8zLiWuwc694q+5AFoh+8ksA08LUGQZGS57q8PAcEu+xmlAYBHljcFDpLz010GS46n1poWdodHU6S2ywxnRAgheKnD2gItWqhzseTyP4SdPP7JtFz7J/xj7yShMai84/Z/Thz0pPYX2ZK2Ptw2y0b9z14mOtT328AXHibDDtccEFudHfiQPS+t5wSqEpDEzmK4B4PEPtRL/ZdTK6XHIN/5bE1f3RlR2rPgVVRSAF6+78YwA3VOk/Qvw79a6CdvmiOTIN57N5jUpIg6R43bmVjxWlGokN4UCgYEA/OYQ20zMIeP+sZQImOGFmoECbthcCRUgxOcjuXxqjVt/KXi+H4MrE6TyQgdFc+iWHQxKrt+sBOR0G85apWqgQF55i9AVQ+6mdXUlQyHGY9XU4eguXh8MyfoM8BokGVngO1BixiEg5txHY0i0pGsyYrPO+47ZAKlmOUal4VRTVg8CgYEA2BOrZj1Q1WTbAOU40ucNdfvfmZ65EkkCOFagNWd2fH/fFNndC+7OAcbppA4aVQty/NLNkYM2rhYcyJ/YIQookCvB6yWnrz+Ggolzpf9CBVi1NrtIQw2WPORU0s/x/XT/RVjuTg3cmmlxA7ZhGaYaWlCrohbTvLnpyiBz8dXPgKMCgYEA9c5cJfsAEhS7kjgzHv1cUW8BQWG0GvPZNOkANSIzoo+DCnkcOh7QuLhC62CL5fv0I+m1kUE/vkWagQhR3KPFfKsW8ojeknecfV/ORvDGFnVZA/YbU0pUsOAEwT53RdiwdJZOWwsKIrmJ/XtGcOTsRTlFfgY670S3YgZD5r6CfYsCgYA0beFi93HLtaMmPnhhREsR28HPpqHFfA2b2fkZvDcV0nkwuARYxuMZr0g11G4zQInwKr5SloIID7mAPLjWm35oLRXqlsJvVXyv4+Y52wwL/BBMbXkFPCC+ObETTf2rwF3IV+HK8rYaiYcwnWpGLPWsAHME64EJBBtkPiekAHtO/QKBgQDnmvtyxnUdzr7MIlrbU19HRVop4Zxj6xZ3RN3ybT4QZSCBwOonNB92cNdkrhCbfF47IQQgjKNjkpc9wflKjJfNPZNGD1O0buFXaqHkwyqL6EhUDRikGw2vP3XPPIX7e5+qYwrCk89TnneCGUiEldd4DTyQSN1UGR74BRBhg2H0og==
+
+
+  cups:
+    zxyUrl: http://127.0.0.1:8998/gateway-api/notify/qb/trade
+    zxyRefundUrl: http://127.0.0.1:8998/gateway-api/notify/qb/refund

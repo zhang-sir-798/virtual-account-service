@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.finance.ema.mapper.BaseTransferOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.com.finance.ema.model.entity.BaseTransferOrder">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="merchant_no" property="merchantNo"/>
+        <result column="channel_no" property="channelNo"/>
+        <result column="platform_no" property="platformNo"/>
+        <result column="group_no" property="groupNo"/>
+        <result column="customer_no" property="customerNo"/>
+        <result column="product_no" property="productNo"/>
+        <result column="goods_no" property="goodsNo"/>
+        <result column="trans_amount" property="transAmount"/>
+        <result column="trans_fee" property="transFee"/>
+        <result column="platform_fee" property="platformFee"/>
+        <result column="channel_fee" property="channelFee"/>
+        <result column="platform_amount" property="platformAmount"/>
+        <result column="merchant_amount" property="merchantAmount"/>
+        <result column="trans_acc_name" property="transAccName"/>
+        <result column="trans_acc_no" property="transAccNo"/>
+        <result column="trans_acc_bank_no" property="transAccBankNo"/>
+        <result column="trans_acc_bank_name" property="transAccBankName"/>
+        <result column="trans_acc_settle_code" property="transAccSettleCode"/>
+        <result column="trans_acc_branch_name" property="transAccBranchName"/>
+        <result column="trans_acc_mobile" property="transAccMobile"/>
+        <result column="trans_acc_id_card" property="transAccIdCard"/>
+        <result column="res_code" property="resCode"/>
+        <result column="res_msg" property="resMsg"/>
+        <result column="remark" property="remark"/>
+        <result column="trans_notify_url" property="transNotifyUrl"/>
+        <result column="sys_order_no" property="sysOrderNo"/>
+        <result column="source_order_no" property="sourceOrderNo"/>
+        <result column="trans_status" property="transStatus"/>
+        <result column="payment_status" property="paymentStatus"/>
+        <result column="check_result_msg" property="checkResultMsg"/>
+        <result column="result_time" property="resultTime"/>
+        <result column="bank_ratio" property="bankRatio"/>
+        <result column="trans_type" property="transType"/>
+        <result column="merchant_sub_no" property="merchantSubNo"/>
+        <result column="plate_sub_no" property="plateSubNo"/>
+        <result column="fun_no" property="funNo"/>
+        <result column="subsidiary_no" property="subsidiaryNo"/>
+        <result column="term_id" property="termId"/>
+
+        <result column="self_order_no" property="selfOrderNo"/>
+        <result column="sub_mer_order_no" property="subMerOrderNo"/>
+        <result column="batch_no" property="batchNo"/>
+        <result column="trx_type" property="trxType"/>
+        <result column="sub_mer_trans_amount" property="subMerTransAmount"/>
+        <result column="req_key" property="reqkey"/>
+        <result column="is_refund" property="isRefund"/>
+
+        <result column="delivery_time" property="deliveryTime"/>
+        <result column="logistics_no" property="logisticsNo"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,create_time,update_time,order_no, merchant_no, channel_no, platform_no, group_no, customer_no, product_no, goods_no, trans_amount,
+        trans_fee, platform_fee, channel_fee, platform_amount, merchant_amount, trans_acc_name, trans_acc_no, trans_acc_bank_no, trans_acc_bank_name,
+        trans_acc_settle_code, trans_acc_branch_name, trans_acc_mobile, trans_acc_id_card, res_code, res_msg, remark, trans_notify_url, sys_order_no,
+        source_order_no, trans_status, payment_status, check_result_msg, result_time, bank_ratio, trans_type, merchant_sub_no, plate_sub_no, fun_no, termId,
+        self_order_no, sub_mer_order_no, batch_no, trx_type, sub_mer_trans_amount, req_key, is_refund, deliveryTime, logisticsNo
+    </sql>
+
+</mapper>

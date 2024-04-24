@@ -1,0 +1,43 @@
+server:
+  port: 19082
+  servlet:
+    context-path: /mp-api
+  tomcat:
+    threads:
+      max: 800
+      min-spare: 100
+    max-connections: 10000
+    accept-count: 1000
+spring:
+  application:
+    name: ema-online-trade-service
+  profiles:
+    active: @env@
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 1
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 1200
+      login-timeout: 1200
+      validation-timeout: 1000
+      initialization-fail-timeout: 200
+      auto-commit: true
+      connection-test-query: select 1
+  servlet:
+    # 文件上传大小限制
+    multipart:
+      max-file-size: 20MB
+#mybatis-plus配置控制台打印完整带参数SQL语句
+mybatis-plus:
+  configuration:
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
+    map-underscore-to-camel-case: true

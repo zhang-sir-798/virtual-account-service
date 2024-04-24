@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.finance.ema.mapper.MerchantMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.com.finance.ema.model.entity.Merchant">
+        <result column="id" property="id" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="merchant_no" property="merchantNo" />
+        <result column="platform_no" property="platformNo" />
+        <result column="merchant_name" property="merchantName" />
+        <result column="register_addr" property="registerAddr" />
+        <result column="register_capital" property="registerCapital" />
+        <result column="register_date" property="registerDate" />
+        <result column="reality_capital" property="realityCapital" />
+        <result column="primary_business" property="primaryBusiness" />
+        <result column="platform_fee_type" property="platformFeeType" />
+        <result column="mcc" property="mcc" />
+        <result column="merchant_type" property="merchantType" />
+        <result column="province" property="province" />
+        <result column="city" property="city" />
+        <result column="area" property="area" />
+        <result column="begin_date" property="beginDate" />
+        <result column="end_date" property="endDate" />
+        <result column="business_scope" property="businessScope" />
+        <result column="introduce" property="introduce" />
+        <result column="legal_name" property="legalName" />
+        <result column="legal_card_type" property="legalCardType" />
+        <result column="legal_id_card" property="legalIdCard" />
+        <result column="legal_card_validity" property="legalCardValidity" />
+        <result column="legal_phone" property="legalPhone" />
+        <result column="legal_work" property="legalWork" />
+        <result column="legal_card_front_photo" property="legalCardFrontPhoto" />
+        <result column="legal_card_reverse_photo" property="legalCardReversePhoto" />
+        <result column="is_integrate" property="isIntegrate" />
+        <result column="license_no" property="licenseNo" />
+        <result column="business_no" property="businessNo" />
+        <result column="license_validity" property="licenseValidity" />
+        <result column="organization_no" property="organizationNo" />
+        <result column="organization_validity" property="organizationValidity" />
+        <result column="tallage_no" property="tallageNo" />
+        <result column="tallage_validity" property="tallageValidity" />
+        <result column="business_address" property="businessAddress" />
+        <result column="req_key" property="reqKey" />
+        <result column="license_photo" property="licensePhoto" />
+        <result column="tallage_photo" property="tallagePhoto" />
+        <result column="organization_photo" property="organizationPhoto" />
+        <result column="business_photo" property="businessPhoto" />
+        <result column="door_photo" property="doorPhoto" />
+        <result column="store_photo" property="storePhoto" />
+        <result column="cashier_desk_photo" property="cashierDeskPhoto" />
+        <result column="agreement_photo" property="agreementPhoto" />
+        <result column="payment_open_photo" property="paymentOpenPhoto" />
+        <result column="audit_Lines" property="auditLines" />
+        <result column="notify_url" property="notifyUrl" />
+        <result column="settle_type" property="settleType" />
+        <result column="outreqid" property="outreqid" />
+        <result column="merchant_notify_url" property="merchantNotifyUrl" />
+        <result column="settle_branch_name" property="settleBranchName" />
+        <result column="settle_branch_no" property="settleBranchNo" />
+        <result column="settle_bank_card_name" property="settleBankCardName" />
+        <result column="settle_bank_name" property="settleBankName" />
+        <result column="settle_phone" property="settlePhone" />
+        <result column="settle_city" property="settleCity" />
+        <result column="settle_province" property="settleProvince" />
+        <result column="settle_bank_no" property="settleBankNo" />
+        <result column="bank_photo" property="bankPhoto" />
+        <result column="bank_legal_hold_card_photo" property="bankLegalHoldCardPhoto" />
+        <result column="auth_photo" property="authPhoto" />
+        <result column="qb_province" property="qbProvince" />
+        <result column="qb_city" property="qbCity" />
+        <result column="qb_area" property="qbArea" />
+        <result column="status" property="status" />
+        <result column="remark" property="remark" />
+        <result column="create_by" property="createBy" />
+        <result column="update_by" property="updateBy" />
+        <result column="merchant_goods_type" property="merchantGoodsType" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        create_time,
+        update_time,
+        merchant_no, platform_no, merchant_name, register_addr, register_capital, register_date, reality_capital, primary_business, platform_fee_type, mcc, merchant_type, province, city, area, begin_date, end_date, business_scope, introduce, legal_name, legal_card_type, legal_id_card, legal_card_validity, legal_phone, legal_work, legal_card_front_photo, legal_card_reverse_photo, is_integrate, license_no, business_no, license_validity, organization_no, organization_validity, tallage_no, tallage_validity, business_address, req_key, license_photo, tallage_photo, organization_photo, business_photo, door_photo, store_photo, cashier_desk_photo, agreement_photo, payment_open_photo, audit_Lines, notify_url, settle_type, outreqid, merchant_notify_url, settle_branch_name, settle_branch_no, settle_bank_card_name, settle_bank_name, settle_phone, settle_city, settle_province, settle_bank_no, bank_photo, bank_legal_hold_card_photo, auth_photo, qb_province, qb_city, qb_area, status, remark, create_by, update_by, merchant_goods_type
+    </sql>
+
+</mapper>
