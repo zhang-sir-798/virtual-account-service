@@ -39,7 +39,7 @@ public class EmaTradeNotifyController {
     }
 
     /**
-     * 接受上游交易异步通知-QBS
+     * 接受上游交易异步通知
      **/
     @PostMapping("/trade")
     public void onlinePay(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -59,7 +59,7 @@ public class EmaTradeNotifyController {
     }
 
     /**
-     * 接受上游退款异步通知-QBS
+     * 接受上游退款异步通知
      **/
     @PostMapping("/refund")
     public void onlineRefund(HttpServletRequest request, HttpServletResponse response) throws Exception {

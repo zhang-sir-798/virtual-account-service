@@ -27,7 +27,7 @@ public class EmaTradeOnlineController {
     }
 
     /**
-     * 交易请求 线上余额类
+     * 交易请求:VA账户余额类
      *
      * @param params
      * @return {@link Result}
@@ -39,7 +39,7 @@ public class EmaTradeOnlineController {
     }
 
     /**
-     * 退款请求 线上余额类
+     * 退款请求:VA账户余额类
      *
      * @param params
      * @return {@link Result}
@@ -51,7 +51,7 @@ public class EmaTradeOnlineController {
     }
 
     /**
-     * 查询请求 余额类+QBS
+     * 查询请求:VA账户余额类
      *
      * @param params
      * @return {@link Result}

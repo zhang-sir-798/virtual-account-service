@@ -605,11 +605,9 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
             if (saveOperations(account, balance, freeze, ObjectUtil.isNotNull(operation) ? operation.getAfterMoney() : "0")) {
                 account.setBalance(balance);
                 account.setFreezeMoney(freeze);
-
-                boolean flag = updateById(account);
-                //boolean flag = opAcAfter(operation.getAfterMoney(), operation.getAfterMoney(), account.getLastDt(), account.getLastAcBalDataId(), account.getAccountNo());
+                boolean flag = opAcAfter(operation.getAfterMoney(), operation.getAfterMoney(), account.getLastDt(), account.getLastAcBalDataId(), account.getAccountNo());
                 log.info("[执行-统计期末余额][保存期末余额成功, acNo:{} 会计日:{} 余额:{} 冻结:{} 执行保存结果:{}]", acNo, acDt, balance, freeze, flag);
-                return true;
+                return flag;
             }
 
             return false;
