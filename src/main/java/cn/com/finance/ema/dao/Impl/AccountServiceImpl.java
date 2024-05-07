@@ -683,6 +683,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         return iBaseOperationService.save(baseOperation);
     }
 
+    //保存流水信息，并发情况会引发幻读，后面会用mq消息队列顺序发放解决，分步式部署情况，消费者记得枷锁redis锁即可
     private boolean saveOperations(Account account, String balance, String freeze, String optAmt) {
 
         List<BaseOperation> baseOperations = new ArrayList<>();

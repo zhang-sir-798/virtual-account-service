@@ -37,10 +37,11 @@ public class TransEmaVochJob {
     IAccountService iAccountService;
 
     /**
-     * 定时任务 每天凌晨执行一次
+     * 期末余额作业
+     * 定时任务,每天凌晨执行一次
+     * 账期为7日
      */
     @Scheduled(cron = "0 0 0 * * ?")
-    //@PostConstruct
     public void vochJob() {
         log.info("[期末余额作业开始执行] 当前线程编号：{} , 当前线程名称：{}", Thread.currentThread().getId(), Thread.currentThread().getName());
         int index = 1;
