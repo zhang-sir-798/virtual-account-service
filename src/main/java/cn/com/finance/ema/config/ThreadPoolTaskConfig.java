@@ -22,9 +22,9 @@ public class ThreadPoolTaskConfig {
 
     private static final int maxPoolSize = Runtime.getRuntime().availableProcessors() * 4;
 
-    private static final int keepAliveTime = 10;
+    private static final int keepAliveTime = 20;
 
-    private static final int queueCapacity = 200;
+    private static final int queueCapacity = 500;
 
     private static final String threadNamePrefix = "Async-Service-";
 
