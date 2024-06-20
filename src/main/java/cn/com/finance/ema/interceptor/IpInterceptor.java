@@ -46,17 +46,17 @@ public class IpInterceptor implements HandlerInterceptor {
         String ip = IpUtil.getIpAddress(request);
 
         if (whites.isEmpty()) {
-            log.info("[白名单拦截器] 当前请求IP=：{}  检查到白名单列表为空", ip);
+            log.info("[白名单拦截器] 检查到白名单列表为空");
             return false;
         }
 
         if (whites.contains(ip) == false) {
-            log.info("[白名单拦截器] 当前请求IP=：{}  白名单检查未通过", ip);
+            log.info("[白名单拦截器] 当前请求IP=：{}  注意！白名单检查未通过 , 非法ip！", ip);
             error(response);
             return false;
         }
 
-        log.info("[白名单拦截器] 白名单检查通过 当前请求IP=：{} ", ip);
+        log.info("[白名单拦截器] 白名单检查通过 , 当前请求IP=：{} ", ip);
         return true;
     }
 
@@ -95,14 +95,14 @@ public class IpInterceptor implements HandlerInterceptor {
     }
 
     /**
-     * 刷新ip列表
-     * 定时任务 每15分钟执行一次
+     * 刷新ip列表到jvm
+     * 定时任务 每30分钟执行一次
      */
-    @Scheduled(cron = "0 0/15 * * * ?")
+    @Scheduled(cron = "0 0/30 * * * ?")
     public void SyncIPJob() {
         log.info("[定时同步白名单IP开始执行] 当前线程编号：{} , 当前线程名称：{}", Thread.currentThread().getId(), Thread.currentThread().getName());
         whites = iSysIpWhitesService.queryAll();
-        log.info("[定时同步白名单IP开始执行]  , IP值：{}", ArrayUtil.toString(whites));
+        log.info("[定时同步白名单IP开始执行]  , IP池：{}", ArrayUtil.toString(whites));
 
     }
 
@@ -113,7 +113,7 @@ public class IpInterceptor implements HandlerInterceptor {
     private void initIP() {
         log.info("[初始化IP白名单] 当前线程编号：{} , 当前线程名称：{}", Thread.currentThread().getId(), Thread.currentThread().getName());
         whites = iSysIpWhitesService.queryAll();
-        log.info("[初始化IP白名单]  , IP值：{}", ArrayUtil.toString(whites));
+        log.info("[初始化IP白名单]  , IP池：{}", ArrayUtil.toString(whites));
     }
 
 }
