@@ -63,7 +63,7 @@ public class Constants {
     //退款
     public static final String TRANS_TYPE_REFUND = "1";
 
-    //铸源集团编号
+    //集团编号
     public static final String GROUP_N0 = "GP001";
 
     //交易手续费账户

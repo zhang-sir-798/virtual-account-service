@@ -38,7 +38,7 @@ public class SysIpWhites implements Serializable {
     private String ipOwnCode;
 
     /**
-     * ip拥有者名称，例如: 永倍达
+     * ip拥有者名称
      */
     @TableField("ip_own_name")
     private String ipOwnName;
