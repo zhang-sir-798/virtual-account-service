@@ -47,7 +47,7 @@ public class EmaTradeNotifyController {
         Map<String, String> respMap = parse(request);
         //验签
         if (!RsaUtils.verify(respMap, properties.getQbsPublicKey(), "RSA2", respMap.get("digest"))) {
-            log.error("[交易-上游-异步通知] 验签失败 , 订单号:{}", respMap.get("orderNo"));
+            log.info("[交易-上游-异步通知] 验签失败 , 订单号:{}", respMap.get("orderNo"));
             response.getOutputStream().print("NO");
             return;
         }
@@ -67,7 +67,7 @@ public class EmaTradeNotifyController {
         Map<String, String> respMap = parse(request);
         //验签
         if (!RsaUtils.verify(respMap, properties.getQbsPublicKey(), "RSA2", respMap.get("digest"))) {
-            log.error("[退款-上游-异步通知] 验签失败 , 退款订单号:{}", respMap.get("refundOrderNo"));
+            log.info("[退款-上游-异步通知] 验签失败 , 退款订单号:{}", respMap.get("refundOrderNo"));
             response.getOutputStream().print("NO");
             return;
         }
