@@ -58,7 +58,6 @@ public class EmaTradeOnlineController {
      **/
     @PostMapping("/query")
     public String queryOrder(@RequestParam("params") String params) {
-        //public String queryOrder(@RequestBody byte[] req) {
         log.info("[查询请求] params请求参数：{}", params);
         return iEmaTradeCoreService.queryOnlineOrder(params);
     }
