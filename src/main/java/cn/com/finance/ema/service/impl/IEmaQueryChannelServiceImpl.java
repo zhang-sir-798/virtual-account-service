@@ -60,7 +60,7 @@ public class IEmaQueryChannelServiceImpl implements IEmaQueryChannelService {
 
         BaseBatchOrder order = iBaseBatchOrderService.getBaseMapper().selectOne(new LambdaQueryWrapper<BaseBatchOrder>().eq(BaseBatchOrder::getBatchNo, req.getOrderNo()));
         if (ObjectUtil.isNull(order)) {
-            log.error("[查询请求][BaseBatchOrder订单查询结果为空 , 请求参数：{}]", req);
+            log.info("[查询请求][BaseBatchOrder订单查询结果为空 , 请求参数：{}]", req);
             req.setResCode(CodeEnum.ILLEGAL_PARAM.getResCode());
             req.setResMsg(CodeEnum.ILLEGAL_PARAM.getResMsg() + " , 单号有误请核实");
             req.setOrderStatus(Constants.UNKONW);
