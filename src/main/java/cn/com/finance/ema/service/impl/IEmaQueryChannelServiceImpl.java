@@ -192,6 +192,7 @@ public class IEmaQueryChannelServiceImpl implements IEmaQueryChannelService {
             req.setResCode(CodeEnum.BUS_FAIL.getResCode());
             req.setResCode(CodeEnum.BUS_FAIL.getResMsg());
             req.setOrderStatus(Constants.ONLINREFUNDFAILED);
+            log.error("返回参数 is empty：{}", resp);
             return;
         }
         //----mock----
