@@ -228,6 +228,7 @@ public class IEmaQueryChannelServiceImpl implements IEmaQueryChannelService {
             req.setOrderStatus(Constants.UNKONW);
             req.setResCode(CodeEnum.BUS_NU.getResCode());
             req.setResMsg(CodeEnum.BUS_NU.getResMsg());
+            log.error("处理失败，响应信息：{}", CodeEnum.BUS_NU.getResMsg());
         } else if ("0028".equals(resultCode)) {// 找不到原笔交易(用户未扫码)还未和上游交互
             req.setOrderStatus(Constants.INIT);
             req.setResCode(CodeEnum.NONE.getResCode());
