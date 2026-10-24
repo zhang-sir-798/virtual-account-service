@@ -123,11 +123,6 @@ public class IEmaQueryChannelServiceImpl implements IEmaQueryChannelService {
             log.error("[请求参数为空]");
             return;
         }
-        //------mock-------
-//        Map<String, String> respMap = MapUtil.newHashMap();
-//        respMap.put("resultCode", "0000");
-//        log.info("[QB微支云--统一下单查询--mock 响应参数==] 返回参数：{}", respMap);
-        //------mock------
         //验签
         Map<String, String> respMap = JSONObject.parseObject(resp, Map.class);
         if (!RsaUtils.verify(respMap, properties.getQbsPublicKey(), "RSA2", respMap.get("digest"))) {
@@ -196,11 +191,6 @@ public class IEmaQueryChannelServiceImpl implements IEmaQueryChannelService {
             log.error("返回参数 is empty：{}", resp);
             return;
         }
-        //----mock----
-//        Map<String, String> respMap = MapUtil.newHashMap();
-//        respMap.put("resultCode", "0000");
-//        log.info("[QB微支云--统一下单退款--mock响应参数] 返回参数：{}", respMap);
-        //----mock----
         //验签
         Map<String, String> respMap = JSONObject.parseObject(resp, Map.class);
         if (!RsaUtils.verify(respMap, properties.getQbsPublicKey(), "RSA2", respMap.get("digest"))) {
