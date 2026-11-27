@@ -204,7 +204,7 @@ public class IEmTradeChannelServiceImpl implements IEmaTradeChannelService {
             }
             req.setResCode(CodeEnum.SUCCESS.getResCode());
             req.setResMsg(CodeEnum.SUCCESS.getResCode());
-            log.info("[QB微支云-统一下单 , 成功 -> TradeNo:{} 系统单号:{}", req.getTradeNo(), req.getBaseBatchOrder().getSysOrderNo());
+            log.info("[微支云-统一下单 , 成功 -> TradeNo:{} 系统单号:{}", req.getTradeNo(), req.getBaseBatchOrder().getSysOrderNo());
             paramMap.clear();
         } catch (Exception e) {
             log.error(e.getMessage());
